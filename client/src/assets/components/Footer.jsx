@@ -5,7 +5,12 @@ export default function Footer() {
     return (
         <>
         <footer>
-      
+            <div id="footer-text">
+            Aaron. aphex twin Demie. Patrick. 
+            <div id="date">
+                2023. Tech Educators.
+                </div>
+            </div>
         </footer>
         </>
        
