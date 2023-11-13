@@ -8,26 +8,21 @@ app.use(express.json());
 const PORT = 8080;
 const mongoose = require("mongoose");
 
-
 const Music = require("./Models/music");
 mongoose.connect(process.env.DATABASE_URL);
-
 
 app.get("/", (_, response) => {
   response.json("Testing the server!");
 });
 
-
-app.get("/charts", async (request, repsonse) => {
-  const musicCharts = await Music.find(request.query);
-  repsonse.json(musicCharts);
+app.get("/charts", async (request, response) => {
+  try {
+    const musicCharts = await Music.find(request.query);
+    response.json(musicCharts);
+  } catch (error) {
+    response.status(500).json({ error: "Error retrieving music charts" });
+  }
 });
-
- app.post("/charts", async(request, response) => {
-  const newMusic = await Music.create(request.body);
-  response.json(newMusic);
-}); 
-
 
 
  

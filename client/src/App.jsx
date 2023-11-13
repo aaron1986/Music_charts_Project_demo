@@ -1,17 +1,15 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import Header from './assets/components/Header'
-import Footer from './assets/components/Footer'
-import Charts from './assets/components/Charts'
-import About from './assets/components/About'
-import axios from 'axios'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Header from './assets/components/Header';
+import Footer from './assets/components/Footer';
+import Charts from './assets/components/Charts';
+import About from './assets/components/About';
+import axios from 'axios';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import LoginButton from './assets/components/LoginButton';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+function App() {
+  const [music, setMusic] = useState([]);
 
-    function App() {
-
-      const [music, setMusic] = useState([]);
 
   // useEffect
   useEffect(() => {
@@ -24,24 +22,28 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
     setMusic(res.data);
   }
 
+  return (
+    <>
+      <BrowserRouter>
+        {/* Header */}
+        <Header />
 
-      return (
-        <>
-        <BrowserRouter>
-          {/* Header */}
-          <Header />
-  
-          {/* Charts */}
-          <Routes>
-          <Route path="/charts" element={<Charts music={music} setMusics={setMusic} />} />
+        {/* Charts */}
+        <Routes>
+          <Route
+            path="/charts"
+            element={<Charts music={music} setMusics={setMusic}/>}
+          />
           <Route path="/about" element={<About />} />
+        
+         
         </Routes>
-       
-          {/* FOOTER */}
-          <Footer />
-        </BrowserRouter>
-      </>
-      );
-    }
-    
-    export default App;
+
+        {/* FOOTER */}
+        <Footer />
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;

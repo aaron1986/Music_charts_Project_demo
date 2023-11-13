@@ -41,35 +41,43 @@ function Charts() {
 
 export default Charts; */
 
-import {Link} from "react-router-dom"
+// charts.js
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import AudioComponent from './AudioComponent';
 
-export default function Charts({music, setMusic}) {
+export default function Charts({ music, setMusic, setSelectedAudio, addToPlaylist }) {
   const sortedMusic = [...music].sort((a, b) => a.rank - b.rank);
 
-    return (
-        <div>
-            {sortedMusic.map((music) => {
-                return (
-                    <div key={music._id}>
-                        <Link to={`/charts/${music._id}`}>
-                          <h2> Rank: {music.rank}</h2>
-                            <h2 id="album_title"> Album Title:</h2>
-                            <h2>{music.title}</h2>
-                            <h2 id="album_title">Artist:</h2>
-                            <h2> {music.artist}</h2>
-                            <div id="chart-img">
-                            <img src={music.cover} />
-                            </div>
-                            <div id="audio-controls">
-                            <audio controls>
-                              <source src={music.audio} />
-                            </audio>
-                            </div>
-                        </Link>
 
-                        </div>
-                )
-            })}
-        </div>
-    )
+  const audioUrls = sortedMusic.map((music) => music.audio);
+
+  return (
+    <>
+      <div>
+        {sortedMusic.map((music) => (
+          <div key={music._id}>
+            <Link to={`/charts/${music._id}`}>
+              <h2> Rank: {music.rank}</h2>
+              <h2 id="album_title"> Album Title:</h2>
+              <h2>{music.title}</h2>
+              <h2 id="album_title">Artist:</h2>
+              <h2> {music.artist}</h2>
+              <div id="chart-img">
+                <img src={music.cover} alt={`Cover for ${music.title}`} />
+              </div>
+              <div id="audio-controls">
+                <audio controls>
+                  <source src={music.audio} />
+                </audio>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+     {/* Add the AudioComponent with the array of audio URLs */}
+     <AudioComponent audioUrls={audioUrls} />
+    </>
+  );
 }
