@@ -18,13 +18,13 @@ export default function About() {
                         Moreover, this led me to start training in the PHP language at Zend (I completed both level one and two), 
                         I also started to learn front-end web development with the Coursera company. 
                 </p> {/* end of about-text */}
-                <img className="soup-image" src="./src/assets/demie.png"></img> 
+                <img className="soup-image" src=""></img> 
             </div> {/* end of about-section */}
         </div> {/* end of about-heading */}
 
       
         <div className='aaron-text'>
-        <img className="soup-image2" src="./src/assets/demie.png"></img> 
+        <img className="soup-image2" src=""></img> 
             <p className='aaron'>
             My love affair with designing started 
                          when I was a child using Deluxe Paint on the Amiga, 
