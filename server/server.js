@@ -24,7 +24,10 @@ app.get("/charts", async (request, response) => {
   }
 });
 
-
+app.post("/charts", async(request, response) => {
+  const newChart = await Music.create(request.body);
+  response.json(newChart);
+});
  
 /* app.get("/charts", async (request, response) => {
   const { search } = request.query;

@@ -1,7 +1,6 @@
-// AudioComponent.js
 import React, { useEffect, useRef } from 'react';
 
-const AudioComponent = ({ audioUrls }) => {
+const AudioComponent = () => {
   const audioContextRef = useRef(null);
 
   useEffect(() => {
@@ -22,22 +21,30 @@ const AudioComponent = ({ audioUrls }) => {
       await audioContextRef.current.resume();
     }
 
-    // Fetch and decode each audio file
-    for (const audioUrl of audioUrls) {
-      const response = await fetch(audioUrl);
-      const arrayBuffer = await response.arrayBuffer();
-      const audioBuffer = await audioContextRef.current.decodeAudioData(arrayBuffer);
+    // Fetch and decode an audio file
+    const response1 = await fetch('./src/assets/music/chainsmokers_thisfeeling.mp3');
+    const arrayBuffer1 = await response1.arrayBuffer();
+    const audioBuffer1 = await audioContextRef.current.decodeAudioData(arrayBuffer1);
 
-      // Create a BufferSourceNode for each audio file
-      const source = audioContextRef.current.createBufferSource();
-      source.buffer = audioBuffer;
+    // Fetch and decode the second audio file
+    const response2 = await fetch('./src/assets/music/kygo_stargazing.mp3');
+    const arrayBuffer2 = await response2.arrayBuffer();
+    const audioBuffer2 = await audioContextRef.current.decodeAudioData(arrayBuffer2);
 
-      // Connect the source to the destination (speakers)
-      source.connect(audioContextRef.current.destination);
+    // Create BufferSourceNodes for each audio file
+    const source1 = audioContextRef.current.createBufferSource();
+    source1.buffer = audioBuffer1;
 
-      // Start playing the audio
-      source.start();
-    }
+    const source2 = audioContextRef.current.createBufferSource();
+    source2.buffer = audioBuffer2;
+
+    // Connect sources to the destination (speakers)
+    source1.connect(audioContextRef.current.destination);
+    source2.connect(audioContextRef.current.destination);
+
+    // Start both sources simultaneously
+    source1.start();
+    source2.start();
   };
 
   return (

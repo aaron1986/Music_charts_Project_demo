@@ -34,11 +34,13 @@ function App() {
             path="/charts"
             element={<Charts music={music} setMusics={setMusic}/>}
           />
+
+          
           <Route path="/about" element={<About />} />
         
          
         </Routes>
-
+      
         {/* FOOTER */}
         <Footer />
       </BrowserRouter>

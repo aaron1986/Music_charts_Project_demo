@@ -41,17 +41,18 @@ function Charts() {
 
 export default Charts; */
 
-// charts.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import AudioComponent from './AudioComponent';
+import Form from './Form';
 
-export default function Charts({ music, setMusic, setSelectedAudio, addToPlaylist }) {
+export default function Charts({ music, setMusic }) {
   const sortedMusic = [...music].sort((a, b) => a.rank - b.rank);
+  const [musicCharts, setMusicCharts] = useState([]);
 
-
-  const audioUrls = sortedMusic.map((music) => music.audio);
+  const handleImageClick = (audioSrc) => {
+    const audio = new Audio(audioSrc);
+    audio.play();
+  };
 
   return (
     <>
@@ -64,20 +65,14 @@ export default function Charts({ music, setMusic, setSelectedAudio, addToPlaylis
               <h2>{music.title}</h2>
               <h2 id="album_title">Artist:</h2>
               <h2> {music.artist}</h2>
-              <div id="chart-img">
+              <div id="chart-img" onClick={() => handleImageClick(music.audio)}>
                 <img src={music.cover} alt={`Cover for ${music.title}`} />
-              </div>
-              <div id="audio-controls">
-                <audio controls>
-                  <source src={music.audio} />
-                </audio>
               </div>
             </Link>
           </div>
         ))}
+         <Form musicCharts={musicCharts} setMusicCharts={setMusicCharts} />
       </div>
-     {/* Add the AudioComponent with the array of audio URLs */}
-     <AudioComponent audioUrls={audioUrls} />
     </>
   );
 }
