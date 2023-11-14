@@ -41,35 +41,38 @@ function Charts() {
 
 export default Charts; */
 
-import {Link} from "react-router-dom"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Form from './Form';
 
-export default function Charts({music, setMusic}) {
+export default function Charts({ music, setMusic }) {
   const sortedMusic = [...music].sort((a, b) => a.rank - b.rank);
+  const [musicCharts, setMusicCharts] = useState([]);
 
-    return (
-        <div>
-            {sortedMusic.map((music) => {
-                return (
-                    <div key={music._id}>
-                        <Link to={`/charts/${music._id}`}>
-                          <h2> Rank: {music.rank}</h2>
-                            <h2 id="album_title"> Album Title:</h2>
-                            <h2>{music.title}</h2>
-                            <h2 id="album_title">Artist:</h2>
-                            <h2> {music.artist}</h2>
-                            <div id="chart-img">
-                            <img src={music.cover} />
-                            </div>
-                            <div id="audio-controls">
-                            <audio controls>
-                              <source src={music.audio} />
-                            </audio>
-                            </div>
-                        </Link>
+  const handleImageClick = (audioSrc) => {
+    const audio = new Audio(audioSrc);
+    audio.play();
+  };
 
-                        </div>
-                )
-            })}
-        </div>
-    )
+  return (
+    <>
+      <div>
+        {sortedMusic.map((music) => (
+          <div key={music._id}>
+            <Link to={`/charts/${music._id}`}>
+              <h2> Rank: {music.rank}</h2>
+              <h2 id="album_title"> Album Title:</h2>
+              <h2>{music.title}</h2>
+              <h2 id="album_title">Artist:</h2>
+              <h2> {music.artist}</h2>
+              <div id="chart-img" onClick={() => handleImageClick(music.audio)}>
+                <img src={music.cover} alt={`Cover for ${music.title}`} />
+              </div>
+            </Link>
+          </div>
+        ))}
+         <Form musicCharts={musicCharts} setMusicCharts={setMusicCharts} />
+      </div>
+    </>
+  );
 }
