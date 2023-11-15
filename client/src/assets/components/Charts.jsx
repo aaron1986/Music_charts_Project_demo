@@ -12,6 +12,8 @@ export default function Charts({ music, setMusic, deleteMusic, playlist, setPlay
     const { audio, title, artist } = music;
 
     const audioElement = new Audio(audio);
+
+    console.log("AUDIO", audio)
     audioElement.play();
   };
 
@@ -48,6 +50,7 @@ export default function Charts({ music, setMusic, deleteMusic, playlist, setPlay
                 <h2> {music.artist}</h2>
               </div>
             <div id="btn-container">
+
             <button className="space-btn" onClick={() => handleAddToPlaylist(music)}>
             Add to Playlist
             </button>

@@ -28,7 +28,7 @@ function App() {
   // useEffect
   useEffect(() => {
     getMusic();
-  }, []);
+  }, [music]);
 
   async function getMusic() {
     const API = `http://localhost:8080/charts`;
