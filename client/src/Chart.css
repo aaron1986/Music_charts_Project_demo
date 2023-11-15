@@ -1,0 +1,20 @@
+.chart-element {
+  display: flex;
+  justify-content: space-between;
+  max-width: 60%;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.chart-element > * {
+  flex: 1 1 0px;
+}
+
+.chart-descriptor h2 {
+  font-size: 16px;
+}
+
+.chart-rank {
+  font-size: 48px;
+  max-width: 64px;
+}
