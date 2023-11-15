@@ -5,6 +5,7 @@ html {
 }
 
 .container {
+  color: #d6b0fd;
   margin-left: 2%;
   margin-right: 2%;
 }
@@ -24,14 +25,13 @@ li {
 }
 
 li > a {
-  color: black;
-  text-decoration: none;
+  color: #7f00ff;
   font-family: nav-text;
   font-size: 25px;
 }
 
 li > a:hover {
-  color: red;
+  color: #ffcda2;
 }
 
 h1 {
@@ -45,7 +45,7 @@ h2 {
   display: flex;
   justify-content: center;
   font-family: sans-serif;
-  color: black;
+  color: #ffcda2;
 }
 
 /* CHARTS SECTION */
@@ -75,10 +75,11 @@ img {
   font-family: "about-heading-text";
   font-size: 45px;
   margin-top: 5%;
-  color: #343a40;
+  color: #d7dae1;
 }
 
 .about-text {
+  color: #bdbdbd;
   font-family: "about-text";
   font-size: 25px;
   margin-top: 0%;
@@ -103,6 +104,7 @@ img.soup-image:hover {
 }
 
 .aaron {
+  color: #bdbdbd;
   width: 600px;
   font-family: "about-text";
   font-size: 25px;
@@ -119,7 +121,7 @@ img.soup-image:hover {
 /* FOOTER */
 footer {
   background-color: #1c2321;
-  color: #74abf7;
+  color: #bdbdbd;
   clear: both;
   position: relative;
   z-index: 1;

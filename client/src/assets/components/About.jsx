@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
       <div className="container">
-        <video className="videoTag" autoPlay loop>
+        <video className="videoTag" autoPlay loop muted>
           <source src={video} type="video/mp4" />
         </video>
         <div className="about-heading"></div> {/* end of about-heading */}
