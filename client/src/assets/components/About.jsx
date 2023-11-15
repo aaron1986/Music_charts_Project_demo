@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import video from "../animation.mp4";
+
 export default function About() {
   return (
     <>
       <div className="container">
+        <video className="videoTag" autoPlay loop muted>
+          <source src={video} type="video/mp4" />
+        </video>
         <div className="about-heading">
           <div className="about-section">
             <p className="about-text">
