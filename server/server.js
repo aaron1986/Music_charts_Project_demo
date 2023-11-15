@@ -24,52 +24,21 @@ app.get("/charts", async (request, response) => {
   }
 });
 
+app.delete("/charts/:id", async (request, response) => {
+  try {
+    const deleteMusic = await Music.findByIdAndDelete(request.params.id);
+    response.json(deleteMusic);
+  } catch (error) {
+    response.status(500).json({ error: "Error retrieving music charts" });
+  } 
+});
+
 app.post("/charts", async(request, response) => {
   const newChart = await Music.create(request.body);
   response.json(newChart);
 });
  
-/* app.get("/charts", async (request, response) => {
-  const { search } = request.query;
-  try {
-    const music_api = {
-      method: 'GET',
-      url: 'https://billboard-api5.p.rapidapi.com/api/charts/billboard-200',
-      params: { week: '2022-10-08' },
-      headers: {
-        'X-RapidAPI-Key': '8b32ba5f3dmshd2ba64c7bdcfe4ap1b4606jsn4b241837296c',
-        'X-RapidAPI-Host': 'billboard-api5.p.rapidapi.com'
-      }
-    };
 
-    // retrieve data 
-    const answer = await axios(music_api);
-
-    //extract data from json
-    const entries = answer.data.chart.entries;
-    const extractedData = entries.map((entry) => ({
-      rank: entry.rank,
-      title: entry.title,
-      cover: entry.cover,
-      position: entry.position,
-    }));
-
-   //show data
-    const formattedData = {
-      chart: {
-        week: answer.data.chart.week,
-        entries: extractedData,
-      },
-    };
-
-   //output data on screen
-    response.json(formattedData);
-
-  } catch (error) {
-    console.error(error);
-    response.status(500).json({ error: 'Internal Server Error' });
-  }
-}); */
 
 // Always include this
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));

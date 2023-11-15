@@ -6,7 +6,7 @@ export default function Footer() {
         <>
         <footer>
             <div id="footer-text">
-            Aaron. aphex twin Demie. Patrick. 
+            Aaron. aphex twin Demie. Patrick Houdini. 
             <div id="date">
                 2023. Tech Educators.
                 </div>
