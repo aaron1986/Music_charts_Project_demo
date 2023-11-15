@@ -11,8 +11,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [music, setMusic] = useState([]);
-  const [playlist, setPlaylist] = useState({ audioSrc: null });
 
+  //playlist
+  //const [playlist, setPlaylist] = useState({ audioSrc: null });
+  const [playlist, setPlaylist] = useState([]);
+  
   // useEffect
   useEffect(() => {
     getMusic();
@@ -47,9 +50,16 @@ function App() {
             path="/charts"
             element={<Charts music={music} setPlaylist={setPlaylist} deleteMusic={deleteMusic}/>}
           />
-          <Route path="/playlist" element={<Playlist playlist={playlist} />} />
+            <Route 
+            path="/playlist/:id" 
+            element={<Playlist playlist={playlist} setPlaylist={setPlaylist} />} 
+            />
+
+
           <Route path="/about" element={<About />} />
           <Route path="/charts/:id" element={<Music />} />
+
+
         </Routes>
 
         {/* FOOTER */}

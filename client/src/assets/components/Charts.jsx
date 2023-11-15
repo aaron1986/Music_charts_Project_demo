@@ -9,11 +9,16 @@ export default function Charts({ music, setMusic, deleteMusic, setPlaylist }) {
   const handleImageClick = (music) => {
     const { audio, title, artist } = music;
 
-    //playlist
-    setPlaylist({ audioSrc: audio, title, artist });
-
     const audioElement = new Audio(audio);
     audioElement.play();
+  };
+
+
+  //Playlist Information:
+  const handleAddToPlaylist = (music) => {
+    const { audio, title, artist } = music;
+    // setPlaylist({ audioSrc: audio, title, artist });
+    setPlaylist([...playlist], [{audioSrc: audio, title, artist}])
   };
 
   return (
@@ -30,10 +35,17 @@ export default function Charts({ music, setMusic, deleteMusic, setPlaylist }) {
               <div id="chart-img" onClick={() => handleImageClick(music)}>
                 <img src={music.cover} alt={`Cover for ${music.title}`} />
               </div>
+
+              {/* playlist button */}
+              <button onClick={() => handleAddToPlaylist(music)}>
+                Add to Playlist
+              </button>
+
+              
             </Link>
             <div id="btn-container">
             <button id="space-btn" onClick={() => deleteMusic(music._id)}>Delete Music
-            <span class="button_top"> Button
+            <span className="button_top"> Button
   </span></button>
               </div>
             
