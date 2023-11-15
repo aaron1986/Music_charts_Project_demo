@@ -6,8 +6,11 @@ import Charts from './assets/components/Charts';
 import About from './assets/components/About';
 import Playlist from './assets/components/Playlist';
 import Music from './assets/components/Music';
+
+import AudioComponent from './assets/components/AudioComponent';
 import axios from 'axios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   const [music, setMusic] = useState([]);
@@ -70,6 +73,8 @@ function App() {
 
 
         </Routes>
+
+        <AudioComponent />
 
         {/* FOOTER */}
         <Footer />
