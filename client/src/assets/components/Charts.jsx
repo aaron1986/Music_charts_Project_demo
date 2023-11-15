@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Form from './Form';
+import '../../Chart.css';
 
 export default function Charts({ music, setMusic, deleteMusic, setPlaylist }) {
   const sortedMusic = [...music].sort((a, b) => a.rank - b.rank);
@@ -18,20 +19,33 @@ export default function Charts({ music, setMusic, deleteMusic, setPlaylist }) {
 
   return (
     <>
-      <div>
+      <h2>Music Charts and Form</h2>
+      <Form />
+      <div className='chart-table'>
         {sortedMusic.map((music) => (
-          <div key={music._id}>
-            <Link to={`/charts/${music._id}`}>
-              <h2> Rank: {music.rank}</h2>
-              <h2 id="album_title"> Album Title:</h2>
-              <h2>{music.title}</h2>
-              <h2 id="album_title">Artist:</h2>
-              <h2> {music.artist}</h2>
+          <div className='chart-element' key={music._id}>
+              <h2 className='chart-rank'>{music.rank}</h2>
+
+
+              <Link to={`/charts/${music._id}`}>
               <div id="chart-img" onClick={() => handleImageClick(music)}>
                 <img src={music.cover} alt={`Cover for ${music.title}`} />
               </div>
-            </Link>
+              </Link>
+
+              <div className='chart-descriptor'>
+                {/* <h2 id="album_title"> Album Title:</h2> */}
+                <h2>{music.title}</h2>
+                {/* <h2 id="album_title">Artist:</h2> */}
+                <h2> {music.artist}</h2>
+              </div>
             <div id="btn-container">
+            <button id="space-btn" onClick={() => deleteMusic(music._id)}>Delete Music
+            <span class="button_top"> Button
+  </span></button>
+            <button id="space-btn" onClick={() => deleteMusic(music._id)}>Delete Music
+            <span class="button_top"> Button
+  </span></button>  
             <button id="space-btn" onClick={() => deleteMusic(music._id)}>Delete Music
             <span class="button_top"> Button
   </span></button>
@@ -39,7 +53,7 @@ export default function Charts({ music, setMusic, deleteMusic, setPlaylist }) {
             
           </div>
         ))}
-        <Form />
+
       </div>
     </>
   );
