@@ -88,7 +88,7 @@ img {
   margin-top: 5%;
 }
 
-#space-btn{
+.space-btn{
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.1em 0.1em 0;
@@ -106,7 +106,7 @@ img {
     height:55px;
     }
 
-    #space-btn:hover{
+    .space-btn:hover{
     border-color: rgba(255,255,255,1);
     }
   

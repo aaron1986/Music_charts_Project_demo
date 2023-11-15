@@ -16,6 +16,15 @@ function App() {
   //const [playlist, setPlaylist] = useState({ audioSrc: null });
   const [playlist, setPlaylist] = useState([]);
   
+
+  /*
+
+    initialize Playlist = []
+    
+
+  */
+
+
   // useEffect
   useEffect(() => {
     getMusic();
@@ -48,10 +57,10 @@ function App() {
         <Routes>
           <Route
             path="/charts"
-            element={<Charts music={music} setPlaylist={setPlaylist} deleteMusic={deleteMusic}/>}
+            element={<Charts music={music} playlist={playlist} setPlaylist={setPlaylist} deleteMusic={deleteMusic}/>}
           />
             <Route 
-            path="/playlist/:id" 
+            path="/playlist" 
             element={<Playlist playlist={playlist} setPlaylist={setPlaylist} />} 
             />
 

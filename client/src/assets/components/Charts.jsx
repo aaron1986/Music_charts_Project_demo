@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Form from './Form';
 
-export default function Charts({ music, setMusic, deleteMusic, setPlaylist }) {
+import '../.././Chart.css';
+
+export default function Charts({ music, setMusic, deleteMusic, playlist, setPlaylist }) {
   const sortedMusic = [...music].sort((a, b) => a.rank - b.rank);
 
   const handleImageClick = (music) => {
@@ -16,42 +18,48 @@ export default function Charts({ music, setMusic, deleteMusic, setPlaylist }) {
 
   //Playlist Information:
   const handleAddToPlaylist = (music) => {
-    const { audio, title, artist } = music;
+    const { _id, audio, title, artist, cover } = music;
+
+    console.log("MUSICC", music);
     // setPlaylist({ audioSrc: audio, title, artist });
-    setPlaylist([...playlist], [{audioSrc: audio, title, artist}])
+    setPlaylist([...playlist, {_id, audioSrc: audio, title, artist, cover}])
   };
 
   return (
     <>
-      <div>
+      <h2>Music Charts and Form</h2>
+      <Form />
+      <div className='chart-table'>
         {sortedMusic.map((music) => (
-          <div key={music._id}>
-            <Link to={`/charts/${music._id}`}>
-              <h2> Rank: {music.rank}</h2>
-              <h2 id="album_title"> Album Title:</h2>
-              <h2>{music.title}</h2>
-              <h2 id="album_title">Artist:</h2>
-              <h2> {music.artist}</h2>
+          <div className='chart-element' key={music._id}>
+              <h2 className='chart-rank'>{music.rank}</h2>
+
+
+              <Link to={`/charts/${music._id}`}>
               <div id="chart-img" onClick={() => handleImageClick(music)}>
                 <img src={music.cover} alt={`Cover for ${music.title}`} />
               </div>
+              </Link>
 
-              {/* playlist button */}
-              <button onClick={() => handleAddToPlaylist(music)}>
-                Add to Playlist
-              </button>
-
-              
-            </Link>
+              <div className='chart-descriptor'>
+                {/* <h2 id="album_title"> Album Title:</h2> */}
+                <h2>{music.title}</h2>
+                {/* <h2 id="album_title">Artist:</h2> */}
+                <h2> {music.artist}</h2>
+              </div>
             <div id="btn-container">
-            <button id="space-btn" onClick={() => deleteMusic(music._id)}>Delete Music
+            <button className="space-btn" onClick={() => handleAddToPlaylist(music)}>
+            Add to Playlist
+            </button>
+
+            <button className="space-btn" onClick={() => deleteMusic(music._id)}>Delete Music
             <span className="button_top"> Button
   </span></button>
               </div>
             
           </div>
         ))}
-        <Form />
+
       </div>
     </>
   );
