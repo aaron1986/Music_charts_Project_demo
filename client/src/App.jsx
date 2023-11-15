@@ -7,6 +7,10 @@ import About from './assets/components/About';
 import Playlist from './assets/components/Playlist';
 import Music from './assets/components/Music';
 
+import MashupForm from './assets/components/MashupForm';
+
+
+
 import AudioComponent from './assets/components/AudioComponent';
 import axios from 'axios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -14,6 +18,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [music, setMusic] = useState([]);
+
+  const [mashup, setMashup] = useState([]);
 
   //playlist
   //const [playlist, setPlaylist] = useState({ audioSrc: null });
@@ -33,10 +39,19 @@ function App() {
     getMusic();
   }, [music]);
 
+  useEffect(() => {
+    getMashups();
+  }, [mashup]);
   async function getMusic() {
     const API = `http://localhost:8080/charts`;
     const res = await axios.get(API);
     setMusic(res.data);
+  }
+
+  async function getMashups() {
+    const API = `http://localhost:8080/mashup`;
+    const res = await axios.get(API);
+    setMashup(res.data);
   }
 
   async function deleteMusic(id) {
@@ -58,6 +73,7 @@ function App() {
 
         {/* Charts */}
         <Routes>
+          
           <Route
             path="/charts"
             element={<Charts music={music} playlist={playlist} setPlaylist={setPlaylist} deleteMusic={deleteMusic}/>}
@@ -70,15 +86,16 @@ function App() {
 
           <Route path="/about" element={<About />} />
           <Route path="/charts/:id" element={<Music />} />
-
+          <Route path="/mashup" element={<MashupForm mashup={mashup}/>} />
 
         </Routes>
 
         <AudioComponent />
+      </BrowserRouter>
 
+      
         {/* FOOTER */}
         <Footer />
-      </BrowserRouter>
     </>
   );
 }
