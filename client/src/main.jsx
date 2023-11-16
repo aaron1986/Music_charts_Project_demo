@@ -11,6 +11,7 @@ root.render(
     clientId="BaTkf3AoxG7n1jDA8DExB1rAVcgKCLbW"
     authorizationParams={{
       redirect_uri: window.location.origin
+
     }}
   >
     <App />
