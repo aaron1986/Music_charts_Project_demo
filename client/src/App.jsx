@@ -8,7 +8,7 @@ import Playlist from './assets/components/Playlist';
 import Music from './assets/components/Music';
 
 
-import LogoutButton from './assets/components/LogOutButton';
+import LogoutButton from './assets/components/LogoutButton';
 import LoginButton from './assets/components/LoginButton';
 import { useAuth0 } from "@auth0/auth0-react";
 
