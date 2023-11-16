@@ -7,6 +7,7 @@ import paddy from "../paddy.jpg";
 export default function About() {
   return (
     <>
+      {/* muted */}
       <div className="container">
         <video className="videoTag" autoPlay loop>
           <source src={video} type="video/mp4" />
