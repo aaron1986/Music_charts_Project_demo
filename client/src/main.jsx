@@ -7,11 +7,10 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
 <Auth0Provider
-    domain="dev-jgvhkh284hmyqkyp.uk.auth0.com"
-    clientId="BaTkf3AoxG7n1jDA8DExB1rAVcgKCLbW"
+    domain="dev-c6mt118k0q6gjcy0.uk.auth0.com"
+    clientId="Snn6AJjqHL9wXsW70p35l1HNWHGJ9AvW"
     authorizationParams={{
       redirect_uri: window.location.origin
-
     }}
   >
     <App />
