@@ -11,7 +11,7 @@ export default function Charts({ music, setMusic, deleteMusic, playlist, setPlay
     const { audio, title, artist } = music;
 
     const audioElement = new Audio(audio);
-
+    
     console.log("AUDIO", audio)
     audioElement.play();
   };
@@ -22,6 +22,8 @@ export default function Charts({ music, setMusic, deleteMusic, playlist, setPlay
     const { _id, audio, title, artist, cover } = music;
 
     console.log("MUSICC", music);
+
+
     setPlaylist([...playlist, {_id, audioSrc: audio, title, artist, cover}])
   };
 

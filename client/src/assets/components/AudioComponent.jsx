@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const AudioComponent = () => {
+const AudioComponent = ({song1Link, song2Link}) => {
   const audioContextRef = useRef(null);
   const source1Ref = useRef(null);
   const gainNode1Ref = useRef(null);
@@ -9,14 +9,20 @@ const AudioComponent = () => {
   const [audioBufferSource, setAudioBufferSource] = useState(null);
   const [volume, setVolume] = useState(1);
 
-  
+  const [song1, setSong1] = useState(song1Link);
+  const [song2, setSong2] = useState(song2Link);
 
+  
 
   // First use effect for initializing audio.
   useEffect(() => {
     
-    audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
+    audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)
+    ();
 
+    
+    // console.log("S1 LINK", song1)
+    // console.log("S2 LINK", song2)
   });
 
   // Second use effect 
@@ -41,12 +47,13 @@ const AudioComponent = () => {
     // Check if the AudioContext is in a suspended state and resume it
 
     // Fetch and decode an audio file
-    const response1 = await fetch('./src/assets/music/nicovinz_amiwrong.mp3');
+
+    const response1 = await fetch(`${song1}`);
     const arrayBuffer1 = await response1.arrayBuffer();
     const audioBuffer1 = await audioContextRef.current.decodeAudioData(arrayBuffer1);
 
     // Fetch and decode the second audio file
-    const response2 = await fetch('./src/assets/music/bonjovi_itsmylife.mp3');
+    const response2 = await fetch(`${song2}`);
     const arrayBuffer2 = await response2.arrayBuffer();
     const audioBuffer2 = await audioContextRef.current.decodeAudioData(arrayBuffer2);
 
@@ -74,6 +81,7 @@ const AudioComponent = () => {
     // Set the audio buffers for each source
     source1.buffer = audioBuffer1;
     source2.buffer = audioBuffer2;
+
 
     // Start both sources simultaneously
     source1.start();
