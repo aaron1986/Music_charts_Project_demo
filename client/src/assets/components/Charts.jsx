@@ -1,4 +1,3 @@
-// Charts.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Form from './Form';
@@ -23,7 +22,6 @@ export default function Charts({ music, setMusic, deleteMusic, playlist, setPlay
     const { _id, audio, title, artist, cover } = music;
 
     console.log("MUSICC", music);
-    // setPlaylist({ audioSrc: audio, title, artist });
     setPlaylist([...playlist, {_id, audioSrc: audio, title, artist, cover}])
   };
 

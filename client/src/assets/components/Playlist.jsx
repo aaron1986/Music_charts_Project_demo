@@ -11,7 +11,7 @@ export default function Playlist({ playlist, setPlaylist }) {
     const params = useParams();
   
     useEffect(() => {
-      // getMusic();
+    
       getPlaylist();
     }, []);
   
@@ -20,12 +20,11 @@ export default function Playlist({ playlist, setPlaylist }) {
       const res = await axios.get(API);
       setMusic(res.data[0]);
   
-      //playlist 
-      // setPlaylist({ audioSrc: res.data[0].audio, title: res.data[0].title, artist: res.data[0].artist });
+      
     }
     
     async function getPlaylist() {
-      // console.log("PLAYLIST 13:18", playlist)
+      
     }
   
     return (
