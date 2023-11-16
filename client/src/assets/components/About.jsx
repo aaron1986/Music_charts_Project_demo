@@ -8,10 +8,10 @@ export default function About() {
   return (
     <>
       {/* muted */}
+      <video className="videoTag" autoPlay loop>
+        <source src={video} type="video/mp4" />
+      </video>
       <div className="container">
-        <video className="videoTag" autoPlay loop>
-          <source src={video} type="video/mp4" />
-        </video>
         <div className="about-heading"></div> {/* end of about-heading */}
         <div className="aaron-text">
           <img className="soup-image2" src=""></img>
@@ -23,8 +23,8 @@ export default function About() {
           {/* end of aaron */}
         </div>{" "}
         {/* end aaron-text */}
-        <div className="about-section">
-          <p className="about-text">
+        <div className="about-section add-margin">
+          <p className="about-text add-smaller-margin">
             So, picture this: I'm this total coding newbie, right? Never touched
             the stuff before. But then, I decide to take the plunge into the
             coding world. Along the way, I meet these cool people – tech
