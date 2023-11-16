@@ -40,13 +40,13 @@ function App() {
     getMashups();
   }, [mashup]);
   async function getMusic() {
-    const API = `http://localhost:8080/charts`;
+    const API = `https://music-app-2zd6.onrender.com/charts`;
     const res = await axios.get(API);
     setMusic(res.data);
   }
 
   async function getMashups() {
-    const API = `http://localhost:8080/mashup`;
+    const API = `https://music-app-2zd6.onrender.com/mashup`;
     const res = await axios.get(API);
     setMashup(res.data);
   }
@@ -54,7 +54,7 @@ function App() {
   async function deleteMusic(id) {
     const check = window.confirm('Are you sure?');
     if(check) {
-      const API = `http://localhost:8080/charts/${id}`;
+      const API = `https://music-app-2zd6.onrender.com/charts/${id}`;
       await axios.delete(API);
       getMusic();
     } else {

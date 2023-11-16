@@ -16,7 +16,7 @@ export default function Playlist({ playlist, setPlaylist }) {
     }, []);
   
     async function getMusic() {
-      const API = `http://localhost:8080/charts?_id=${params.id}`;
+      const API = `https://music-app-2zd6.onrender.com/charts?_id=${params.id}`;
       const res = await axios.get(API);
       setMusic(res.data[0]);
   
