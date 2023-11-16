@@ -17,11 +17,12 @@
   "author": "Aaron. aphex twin Demie. Patrick.",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.1",
+    "axios": "^1.6.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^8.0.0",
+    "mongoose": "^8.0.1",
+    "moongoose": "^0.0.5",
     "nodemon": "^3.0.1"
   }
 }

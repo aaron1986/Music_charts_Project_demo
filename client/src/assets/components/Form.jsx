@@ -32,16 +32,22 @@ export default function Form({musicCharts, setMusicCharts, music, setMusic }) {
     }
 
     return (
-        <form onSubmit={music?.rank ? updateMusic : addMusic}>
-            <input name="rank" placeholder="rank" onChange={handleChange} value={formData.rank} />
-            <input name="title" placeholder="title" onChange={handleChange} value={formData.title} />
-            <input name="artist" placeholder="artist" onChange={handleChange} value={formData.artist} />
-            <input name="cover" placeholder="cover" onChange={handleChange} value={formData.cover} />
-            <input name="audio" placeholder="audio" onChange={handleChange} value={formData.audio} />
-            <input name="weeksOnChart" placeholder="weeksOnChart" onChange={handleChange} value={formData.weeksOnChart} />
-            
-            <button className="btn-form">Add Music</button>
-        </form>
+             <form onSubmit={music?.rank ? updateMusic : addMusic}>
+                <div className="login-box">
+                    <div className="user-box">
+                    <input name="title" placeholder="title" onChange={handleChange} value={formData.title} />
+                    <input name="artist" placeholder="artist" onChange={handleChange} value={formData.artist} />
+           <input name="cover" placeholder="cover" onChange={handleChange} value={formData.cover} />
+           <input name="audio" placeholder="audio" onChange={handleChange} value={formData.audio} />
+           <input name="weeksOnChart" placeholder="weeksOnChart" onChange={handleChange} value={formData.weeksOnChart} />
+           <div className="btn-container">
+           <button className="button-17">Add Music</button>
+           </div>
+                    </div> {/* user-box */}
+                </div> {/* login-box */}
+       </form>
+        
+       
     );
 
 
