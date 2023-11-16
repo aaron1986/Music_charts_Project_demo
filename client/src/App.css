@@ -6,8 +6,8 @@ html {
 
 .container {
   color: #d6b0fd;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: auto;
+  max-width: 1100px;
 }
 
 /* NAV */
@@ -69,6 +69,7 @@ img {
 .about-section {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .about-heading {
@@ -101,6 +102,7 @@ img.soup-image:hover {
   display: flex;
   justify-content: space-between;
   margin-top: 10%;
+  align-items: center;
 }
 
 .aaron {
@@ -158,6 +160,13 @@ footer {
   min-width: 100vw;
   z-index: -10;
   position: fixed;
-  margin-left: -3%;
   top: 0;
+}
+
+.add-margin {
+  margin: 1rem;
+}
+
+.add-smaller-margin {
+  margin: 0.7rem;
 }

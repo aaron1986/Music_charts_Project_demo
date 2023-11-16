@@ -8,30 +8,26 @@ export default function About() {
   return (
     <>
       {/* muted */}
+      <video className="videoTag" autoPlay loop>
+        <source src={video} type="video/mp4" />
+      </video>
       <div className="container">
-        <video className="videoTag" autoPlay loop>
-          <source src={video} type="video/mp4" />
-        </video>
         <div className="about-heading"></div> {/* end of about-heading */}
-        <div className="aaron-text">
-          <img className="soup-image2" src=""></img>
-          <p className="aaron">
-            My love affair with designing started when I was a child using
-            Deluxe Paint on the Amiga, I tried to design ‘Andy Warhol’ coke cans
-            and the Guns N’ Roses band logo, while also making small animations.
-            I started to write HTML and CSS code from books I borrowed from the
-            local library, additionally, I was given the advice to learn to code
-            instead of using Macromedia Dreamweaver and Adobe software to design
-            my webpages. Moreover, this led me to start training in the PHP
-            language at Zend (I completed both level one and two), I also
-            started to learn front-end web development with the Coursera
-            company.
+        <div className="aaron-text add-margin">
+          <img className="soup-image2 add-smaller-margin" src=""></img>
+          <p className="aaron add-smaller-margin">
+            My main aim was to display music charts on a website by integrating
+            an API. My goal was to present the album cover, album rank, and
+            artist/album title alongside the charts. Initially, I utilized the
+            'Billboard Chart' API from Rapid API, but the data quality was
+            pretty bad. Moreover, I decided to generate my own data and charts
+            for a more reliable presentation.
           </p>{" "}
           {/* end of aaron */}
         </div>{" "}
         {/* end aaron-text */}
-        <div className="about-section">
-          <p className="about-text">
+        <div className="about-section add-margin">
+          <p className="about-text add-smaller-margin">
             So, picture this: I'm this total coding newbie, right? Never touched
             the stuff before. But then, I decide to take the plunge into the
             coding world. Along the way, I meet these cool people – tech
