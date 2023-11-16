@@ -7,7 +7,7 @@ const LoginButton = () => {
 
   const handleLogin = async () => {
     await loginWithRedirect({
-      appState: { returnTo: 'http://localhost:5173/charts' } 
+      appState: { returnTo: '/home' } 
     });
   };
 

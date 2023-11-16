@@ -28,17 +28,8 @@ function App() {
 
 
   //playlist
-  //const [playlist, setPlaylist] = useState({ audioSrc: null });
   const [playlist, setPlaylist] = useState([]);
   
-
-  /*
-
-    initialize Playlist = []
-    
-
-  */
-
 
   // useEffect
   useEffect(() => {

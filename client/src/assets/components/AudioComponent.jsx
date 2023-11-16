@@ -28,19 +28,7 @@ const AudioComponent = ({song1Link, song2Link}) => {
   // Second use effect 
   useEffect(() => {
 
-    // console.log("ACR CURRENT 1147", audioContextRef.current)
 
-    // const audio = audioContextRef.current;
-
-    // const gainNode = audio.createGain();
-
-    // gainNode.gain.value = volume;
-
-    // audio.volume = volume;
-
-    // console.log('VOLUME' , volume)
-
-    // Clean up the audio context when the component unmounts
     return () => {
       // if (audioContextRef.current && audioContextRef.current.state === 'running') {
       //   audioContextRef.current.close();
@@ -139,72 +127,3 @@ const AudioComponent = ({song1Link, song2Link}) => {
 export default AudioComponent;
 
 
-// import { useEffect, useRef } from 'react';
-
-// const AudioComponent = () => {
-  
-//   let audioContext;
-//   let bufferLoader;
-
-//   const audioContextRef = useRef(null);
-
-  
-//   const handleClick = () => {
-
-//     if (audioContextRef.current) {
-
-
-//         audioContextRef.current.resume().then(() => {
-
-//         });
-//     }
-
-//   }
-
-//   useEffect(() => {
-
-//     const init = async () => {
-//       const audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
-
-//       bufferLoader = new BufferLoader(
-//         audioContext, ['./src/assets/music/chainsmokers_thisfeeling.mp3', '.src/assets/music/kygo_stargazing.mp3'],
-//         finishedLoading
-//       );
-
-//       bufferLoader.load();
-//     }
-
-//     const finishedLoading = async (bufferList) => {
-
-//       // create two sources and play them together
-
-//       var source1 = audioContext.createBufferSource();
-//       var source2 = audioContext.createBufferSource();
-//       source1.buffer = bufferList[0];
-//       source2.buffer = bufferList[1];
-
-//       source1.connect(audioContext.destination);
-//       source2.connect(audioContext.destination);
-//       source1.start(0);
-//       source2.start(0);
-
-
-
-//     }
-
-//     init()
-
-//     return () => {
-//       if (audioContext && audioContext.state === 'running') {
-//         audioContext.close();
-//       }
-//     };
-//   }, []);
-
-
-//   return <button onClick={handleClick}>Start Audio</button>;
-  
-
-// }
-
-// export default AudioComponent;
