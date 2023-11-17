@@ -16,9 +16,12 @@ export default function About() {
         <div className="aaron-text">
           <img className="soup-image2" src=""></img>
           <p className="aaron">
-          My main aim was to display music charts on a website by integrating an API. My goal was to present the 
-                    album cover, album rank, and artist/album title alongside the charts. Initially, I utilized the 'Billboard Chart' API from Rapid API, 
-                    but the data quality was pretty bad. Moreover, I decided to generate my own data and charts for a more reliable presentation.
+            My main aim was to display music charts on a website by integrating
+            an API. My goal was to present the album cover, album rank, and
+            artist/album title alongside the charts. Initially, I utilized the
+            'Billboard Chart' API from Rapid API, but the data quality was
+            pretty bad. Moreover, I decided to generate my own data and charts
+            for a more reliable presentation.
           </p>{" "}
           {/* end of aaron */}
         </div>{" "}
@@ -46,10 +49,24 @@ export default function About() {
           {/* end of about-text */}
           <img className="soup-image" src={paddy}></img>
         </div>{" "}
+        <div className="about-section add-margin">
+          <p className="about-text add-smaller-margin">
+            Demie is a passionate programmer who embraced the coding world at a
+            young age. Challenges serve as Demie's playground, and conquering
+            them brings a genuine smile to their face. Programming is not just a
+            skill for Demie but a source of joy and perpetual discovery. Every
+            line of code represents a step in Demie's journey toward mastery.
+            Driven by dedication and curiosity, Demie progresses, finding
+            fulfillment in the dynamic world of problem-solving. The love for
+            programming goes beyond a hobby for Demie; it's a compelling force
+            shaping their learning and professional endeavors.
+          </p>{" "}
+          {/* end of about-text */}
+          <img className="soup-image" src={paddy}></img>
+        </div>{" "}
         {/* end of about-section */}
       </div>{" "}
       {/* end of container div */}
     </>
   );
 }
-
