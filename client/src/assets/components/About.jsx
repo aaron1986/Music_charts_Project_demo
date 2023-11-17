@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import video from "../animation.mp4";
 import paddy from "../paddy.jpg";
+import cats from "../cats.jpg";
 
 export default function About() {
   return (
@@ -14,7 +15,7 @@ export default function About() {
       <div className="container">
         <div className="about-heading"></div> {/* end of about-heading */}
         <div className="aaron-text">
-          <img className="soup-image2" src=""></img>
+          <img className="soup-image2" src={cats}></img>
           <p className="aaron">
             My main aim was to display music charts on a website by integrating
             an API. My goal was to present the album cover, album rank, and
@@ -27,6 +28,21 @@ export default function About() {
         </div>{" "}
         {/* end aaron-text */}
         <div className="about-section add-margin">
+          <p className="about-text add-smaller-margin">
+            Demie is a passionate programmer who embraced the coding world at a
+            young age. Challenges serve as Demie's playground, and conquering
+            them brings a genuine smile to their face. Programming is not just a
+            skill for Demie but a source of joy and perpetual discovery. Every
+            line of code represents a step in Demie's journey toward mastery.
+            Driven by dedication and curiosity, Demie progresses, finding
+            fulfillment in the dynamic world of problem-solving. The love for
+            programming goes beyond a hobby for Demie; it's a compelling force
+            shaping their learning and professional endeavors.
+          </p>{" "}
+          {/* end of about-text */}
+        </div>{" "}
+        <div className="about-section add-margin">
+          <img className="soup-image" src={paddy}></img>
           <p className="about-text add-smaller-margin">
             So, picture this: I'm this total coding newbie, right? Never touched
             the stuff before. But then, I decide to take the plunge into the
@@ -47,22 +63,6 @@ export default function About() {
             step at a time.
           </p>{" "}
           {/* end of about-text */}
-          <img className="soup-image" src={paddy}></img>
-        </div>{" "}
-        <div className="about-section add-margin">
-          <p className="about-text add-smaller-margin">
-            Demie is a passionate programmer who embraced the coding world at a
-            young age. Challenges serve as Demie's playground, and conquering
-            them brings a genuine smile to their face. Programming is not just a
-            skill for Demie but a source of joy and perpetual discovery. Every
-            line of code represents a step in Demie's journey toward mastery.
-            Driven by dedication and curiosity, Demie progresses, finding
-            fulfillment in the dynamic world of problem-solving. The love for
-            programming goes beyond a hobby for Demie; it's a compelling force
-            shaping their learning and professional endeavors.
-          </p>{" "}
-          {/* end of about-text */}
-          <img className="soup-image" src={paddy}></img>
         </div>{" "}
         {/* end of about-section */}
       </div>{" "}
